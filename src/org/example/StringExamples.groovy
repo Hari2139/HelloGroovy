@@ -8,27 +8,36 @@ println text
 what.replace(0, 5, "moon")
 println text
 
-//special strings
+println "-------------------------"
+println "special strings "
+println "-------------------------"
 println "double quote".class.name
 println 'single quote'.class.name
 forwardSlashString = /forward slash/
 println forwardSlashString.class.name
 val = "A"
 println "double quote $val".class.name //--> GStringImpl
-println 'single quote $val'.class.name
+println 'single quote $val'.class.name // --> java.lang.String (single quotes will not evaluate variables)
 forwardSlashString = /forward slash $val/
 println forwardSlashString.class.name //--> GStringImpl
 
-//Lazy evaluation problem
+println "-------------------------"
+println " Lazy evaluation problem "
+println "-------------------------"
 price = 568.23
 company = 'Google'
-quote = "Today $company stock closed at $price"; println quote
+quote = "Today $company stock closed at $price"
+println quote
 stocks = [Apple : 130.01, Microsoft : 35.95]
 stocks.each { key, value ->
 	company = key
 	price = value
 	println quote
 }
+
+println "-----------------------------------"
+println " Lazy evaluation problem SOLUTION  "
+println "-----------------------------------"
 //Closures in Groovy are what help you define some code now but execute it later.
 companyClosure = {it.write(company)} //or companyClosure = {-> company } This is a no-parameter closure
 priceClosure = {it.write("$price")} //or priceClosure = {-> price }
@@ -46,9 +55,11 @@ stocks.each { key, value ->
 str = "This is a rainy day!"
 str -= "rainy "
 println str
-for(str in 'held'..'helf') { print "$str " }
+for(str in 'held'..'helf') { println "$str " }
 
-//Regular Expressions
+println "-------------------------"
+println " Regular Expressions "
+println "-------------------------"
 //JDK package java.util.regex
 obj = ~"hello"; println obj.getClass().name
 pattern = ~"(G|g)roovy"
